@@ -214,7 +214,7 @@
                     <option value="https://i.akarin.dev/wms-avatar/avatar-stable.txt">
                     <option value="https://i.akarin.dev/wms-avatar/avatar-fast.txt">
                 </datalist>
-                <div class="mdui-textfield-helper">高级功能，点击<a href="javascript:;" class="mdui-text-color-theme-accent" mdui-dialog="{target:'#aboutAvatarSet'}">这里</a>查看详细说明</div>
+                <div class="mdui-textfield-helper">高级功能，点击<a href="https://github.com/TransparentLC/WechatMomentScreenshot/issues/77" target="_blank" class="mdui-text-color-theme-accent">这里</a>查看详细说明</div>
             </div>
             <div class="mdui-col-xs-4 mdui-col-sm-2">
                 <div class="mdui-textfield">
@@ -473,8 +473,7 @@
                     <p>如果点击“保存”没有反应<br>请尝试长按/右键图片进行另存为操作 (　ﾟ 3ﾟ)</p>
                 </div>
                 <div class="mdui-typo">
-                    <p class="mdui-m-b-1">如果这个工具帮到了你，请推荐给更多的人～</p>
-                    <p>如果你从公众号获取了资源，欢迎通过<a href="https://wj.qq.com/s2/12913387/8254/" target="_blank" rel="noopener noreferrer">这个问卷</a>分享给工具的其他用户。你也可以在<a href="https://i.akarin.dev/wms-archive/" target="_blank">这里</a>查看其他人分享的资源。</p>
+                    <p class="mdui-m-b-1 mdui-text-center">如果这个工具帮到了你，请推荐给更多的人～</p>
                 </div>
             </div>
             <div class="mdui-dialog-actions">
@@ -482,6 +481,22 @@
                 <button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
             </div>
         </div>
+
+        <div id="shareResourcePopup" class="mdui-dialog">
+            <div class="mdui-dialog-title">公众号资源共享</div>
+            <div class="mdui-dialog-content">
+                <div class="mdui-typo">
+                    <p class="mdui-m-b-1">每天都有数十人在使用朋友圈转发截图工具生成截图，从各个公众号<strong>获取 PPT 模板、设计素材、考研/考公/学习资料、数据集等在线资源</strong>，而无需转发朋友圈进行推广集赞，或是购买这些公众号的“VIP 会员”。</p>
+                    <p class="mdui-m-b-1">如果你愿意<strong>将获取的在线资源分享出来</strong>，或许就可以<strong>帮到其他有类似需求的人</strong>，为他们节省从公众号获取资源的时间～</p>
+                    <p class="mdui-m-b-1">你可以通过填写<a href="https://wj.qq.com/s2/12913387/8254/" target="_blank" rel="noopener noreferrer">这个问卷</a>来分享你获取的资源，也可以在<a href="https://i.akarin.dev/wms-archive/" target="_blank">“公众号资源分享”</a>查看其他人分享的资源。</p>
+                </div>
+            </div>
+            <div class="mdui-dialog-actions">
+                <button class="mdui-btn mdui-ripple" mdui-dialog-close>下次一定</button>
+                <button id="shareResourceCopy" class="mdui-btn mdui-ripple" mdui-dialog-close>我知道了！（复制问卷链接）</button>
+            </div>
+        </div>
+
 
         <div id="about" class="mdui-dialog">
             <div class="mdui-dialog-title">关于</div>
@@ -523,28 +538,6 @@
             </div>
         </div>
 
-        <div id="aboutAvatarSet" class="mdui-dialog">
-            <div class="mdui-dialog-title">“自定义头像库”的说明</div>
-            <div class="mdui-dialog-content mdui-typo">
-                <p>如果你希望在生成的截图的点赞区域中显示自定义的头像，可以按照以下步骤操作：</p>
-                <ol>
-                    <li>收集你想要的头像，并上传到图床之类的地方。</li>
-                    <li>将这些头像的 URL 以一行一个的格式保存为纯文本，以下是示例。</li>
-                    <pre><code>https://example.com/avatar-0.jpg
-https://example.com/avatar-1.jpg
-https://example.com/avatar-2.jpg
-...</code></pre>
-                    <li>将这个文本文件上传到某个地方，例如自己的网站上，也可以按照这一格式动态生成头像库的内容，总之需要使头像库也能通过 URL 访问到。</li>
-                    <li>在“自定义头像库”中输入头像库的 URL，点击“应用”后会进行读取，之后在生成截图时就会从头像库抽取头像了。</li>
-                    <li>头像和头像库都需要支持跨域访问（响应头 <code>Access-Control-Allow-Origin: *</code>）</li>
-                </ol>
-                <p>这个功能有一定的技术门槛，因此并不能保证每个人都有条件使用这一功能。留空后点击“应用”将会使用默认头像库。</p>
-            </div>
-            <div class="mdui-dialog-actions">
-                <button class="mdui-btn mdui-ripple" mdui-dialog-close>OK</button>
-            </div>
-        </div>
-
         <div id="request" class="mdui-dialog">
             <div id="requestResult" class="mdui-dialog-title"></div>
             <div id="requestResultContent" class="mdui-dialog-content mdui-typo"></div>
@@ -554,7 +547,7 @@ https://example.com/avatar-2.jpg
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/combine/npm/html2canvas@1/dist/html2canvas.min.js,npm/mdui@1/dist/js/mdui.min.js,gh/TransparentLC/WechatMomentScreenshot@aae426de8e0658323e1f3c978db82d1ad21d87a6/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/html2canvas@1/dist/html2canvas.min.js,npm/mdui@1/dist/js/mdui.min.js,gh/TransparentLC/WechatMomentScreenshot@8845ae515b36f802699393c872bbe8d31b5d5263/main.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/mdui@1/dist/js/mdui.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1/dist/html2canvas.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/gh/TransparentLC/WechatMomentScreenshot/main.min.js"></script> -->

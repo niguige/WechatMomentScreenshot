@@ -68,6 +68,10 @@
 * h**ps://api(dot)qiuliqi(dot)top/wx_pyq/ “小秋秋 API” 移除原作者信息
 * h**ps://lijile(dot)github(dot)io/moment/ 移除原作者信息和源代码链接，将源代码链接替换为自己的 repo 后重新上传到 GitHub
 * h**ps://latejust(dot)com/jizan/ “爱吃柑橘啊” 移除原作者信息和源代码链接
+* h**ps://by(dot)mp4tu(dot)vip/wxjz/ 移除原作者信息和源代码链接
+* h**p://tool(dot)mf2(dot)cn/gongju/pyq/index.html “魔方超级外链工具” 移除原作者信息
+* h**p://vx(dot)bbvmp(dot)com/ “好源码分享/爱源码” 移除原作者信息和源代码链接
+* h**ps://www(dot)php-asp(dot)net/product/view1047.html “好源码分享/爱源码” 有偿售卖源代码
 
 ---
 
